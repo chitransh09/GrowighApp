@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".FeedsActivity"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/feeds_top_section_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="57dp"
+            android:fontFamily="@font/notosansa_regular"
+            android:text="Hello,"
+            android:textColor="@color/white"
+            android:textSize="23sp" />
+
+        <TextView
+            android:id="@+id/txt_user_name"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_hello"
+            android:layout_marginStart="27dp"
+            android:fontFamily="@font/notosansa_regular"
+            android:text="Ayush"
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="71dp"
+            android:layout_marginEnd="36dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="36dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/txt_user_name"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/search_box_bg"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/inter_medium"
+            android:hint="Explore"
+            android:textColor="#3D3D3D"
+            android:paddingStart="20dp"
+            android:paddingEnd="0dp"
+            android:textColorHint="#3D3D3D"
+            android:textSize="18sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/filter_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/relative_layout"
+        app:layout_constraintBottom_toTopOf="@id/feeds_rv">
+
+        <TextView
+            android:id="@+id/txt_browse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/notosans_medium"
+            android:text="Browse By"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_latest"
+            android:layout_width="96dp"
+            android:layout_height="21dp"
+            android:layout_below="@id/txt_browse"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#D9D9D9"
+            android:textAlignment="center"
+            app:cardCornerRadius="20sp">
+
+
+            <TextView
+                android:id="@+id/txt_latest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/notosans_light"
+                android:text="Latest"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btn_older"
+            android:layout_width="96dp"
+            android:layout_height="21dp"
+            android:layout_below="@id/txt_browse"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@id/txt_browse"
+            android:backgroundTint="#D9D9D9"
+            android:textAlignment="center"
+            app:cardCornerRadius="20sp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/notosans_light"
+                android:text="Older"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="13sp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feeds_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/filter_section"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/recyclerview_single_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
